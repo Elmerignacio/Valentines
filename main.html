@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffdde1;
+            text-align: center;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: #d63384;
+        }
+        .buttons {
+            margin-top: 20px;
+            position: relative;
+            width: 300px;
+            height: 100px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            position: absolute;
+        }
+        #yes {
+            background-color: #28a745;
+            color: white;
+            left: 50px;
+        }
+        #no {
+            background-color: #dc3545;
+            color: white;
+            right: 50px;
+            width: 70px; 
+            height: 44px; 
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 1.5rem;
+            color: #d63384;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Will you be my Valentine? 💖</h1>
+    <div class="buttons">
+        <button id="yes" onclick="showMessage()">Yes</button>
+        <button id="no" onmouseover="moveButton()">No</button>
+    </div>
+    <p class="message" id="message">Yay! You made my heart my love, I love you so much! 💘🥰</p>
+    <script>
+        function showMessage() {
+            document.getElementById('message').style.display = 'block';
+        }
+        
+        function moveButton() {
+            let noButton = document.getElementById('no');
+            let maxX = window.innerWidth - noButton.clientWidth - 1000; 
+            let maxY = window.innerHeight - noButton.clientHeight - 1000;
+            let x = Math.random() * maxX;
+            let y = Math.random() * maxY;
+            noButton.style.left = `${x}px`;
+            noButton.style.top = `${y}px`;
+        }
+    </script>
+</body>
+</html>
